@@ -16,6 +16,10 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("projectRoot") {
+            id = "pluu.convention.root"
+            implementationClass = "ProjectRootConventionPlugin"
+        }
         register("androidApplication") {
             id = "pluu.convention.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
