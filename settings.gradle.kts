@@ -14,9 +14,11 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "ConventionPluginsSample"
-include(":app")
-include(":core-data")
-include(":core-ui")
-include(":features-navigator")
-include(":features-main")
-include(":features-sample")
+include(
+    ":app",
+    ":core-data",
+    ":core-ui",
+    ":features-navigator",
+    ":features-main",
+    ":features-sample"
+)
