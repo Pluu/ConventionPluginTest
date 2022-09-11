@@ -17,4 +17,5 @@ rootProject.name = "ConventionPluginsSample"
 include(":app")
 include(":core-data")
 include(":core-ui")
+include(":features-navigator")
 include(":features-sample")
