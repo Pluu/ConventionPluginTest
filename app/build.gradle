@@ -1,5 +1,6 @@
 plugins {
     id 'pluu.convention.android.application'
+    id 'pluu.convention.android.hilt'
 }
 
 android {
@@ -20,6 +21,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":features-main"))
+    implementation(project(":features-sample"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.android.material)

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.pluu.conventionplugins.ui_library">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pluu.conventionplugins.features.sample">
+
+    <application>
+        <activity
+            android:name=".ui.FeaturesSample1Activity"
+            android:exported="false" />
+    </application>
 
 </manifest>
