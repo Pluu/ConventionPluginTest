@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "ConventionPluginsSample"
 include(":app")
 include(":features-sample")
+include(":core-data")

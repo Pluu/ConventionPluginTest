@@ -28,5 +28,9 @@ gradlePlugin {
             id = "pluu.convention.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("javaLibrary") {
+            id = "pluu.convention.java"
+            implementationClass = "JavaLibraryConventionPlugin"
+        }
     }
 }
