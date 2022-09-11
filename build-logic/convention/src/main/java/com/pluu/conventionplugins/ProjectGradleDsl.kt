@@ -7,5 +7,11 @@ import java.util.*
 internal fun <T : Any> DependencyHandlerScope.implementation(
     dependencyNotation: Optional<Provider<T>>
 ) {
-    dependencies.add("implementation", dependencyNotation.get())
+    implementation(dependencyNotation.get())
+}
+
+internal fun DependencyHandlerScope.implementation(
+    dependencyNotation: Any
+) {
+    dependencies.add("implementation", dependencyNotation)
 }

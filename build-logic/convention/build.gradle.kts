@@ -24,6 +24,10 @@ gradlePlugin {
             id = "pluu.convention.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+        register("androidFeature") {
+            id = "pluu.convention.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
         register("androidHilt") {
             id = "pluu.convention.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
