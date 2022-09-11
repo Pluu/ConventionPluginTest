@@ -1,6 +1,7 @@
 plugins {
     id("pluu.convention.android.library")
     id("pluu.convention.android.hilt")
+    id("pluu.convention.android.feature")
 }
 
 android {
@@ -21,12 +22,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.coreUi)
-    implementation(projects.featuresNavigator)
-
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.google.android.material)
     testImplementation(libs.junit4)
     androidTestImplementation(libs.androidx.test.ext)
     androidTestImplementation(libs.androidx.test.espresso)
