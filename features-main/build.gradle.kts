@@ -1,6 +1,4 @@
 plugins {
-    id("pluu.convention.android.library")
-    id("pluu.convention.android.hilt")
     id("pluu.convention.android.feature")
 }
 
