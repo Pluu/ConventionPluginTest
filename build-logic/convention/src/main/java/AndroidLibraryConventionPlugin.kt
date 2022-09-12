@@ -16,12 +16,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
 
-                defaultConfig{
+                defaultConfig {
                     targetSdk = 33
-                    defaultConfig {
-                        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-                        consumerProguardFiles("consumer-rules.pro")
-                    }
+                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                    consumerProguardFiles("consumer-rules.pro")
                 }
 
                 buildTypes {
