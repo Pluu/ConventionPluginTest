@@ -2,6 +2,10 @@ plugins {
     id("pluu.convention.android.feature")
 }
 
+android {
+    namespace = "com.pluu.conventionplugins.features.main"
+}
+
 dependencies {
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit4)

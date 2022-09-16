@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.pluu.conventionplugins.sample'
     defaultConfig {
         applicationId "com.pluu.conventionplugins.sample"
         versionCode 1
