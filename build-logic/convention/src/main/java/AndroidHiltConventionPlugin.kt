@@ -1,5 +1,5 @@
 import com.pluu.conventionplugins.implementation
-import com.pluu.conventionplugins.kapt
+import com.pluu.conventionplugins.ksp
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -11,7 +11,7 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("kotlin-kapt")
+                apply("com.google.devtools.ksp")
                 apply("dagger.hilt.android.plugin")
             }
 
@@ -20,11 +20,7 @@ class AndroidHiltConventionPlugin : Plugin<Project> {
             dependencies {
                 // Hilt
                 implementation(libs.findLibrary("hilt-android"))
-                kapt(libs.findLibrary("hilt-compiler"))
-            }
-
-            kapt {
-                correctErrorTypes = true
+                ksp(libs.findLibrary("hilt-compiler"))
             }
         }
     }
