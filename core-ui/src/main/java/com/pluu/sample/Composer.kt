@@ -10,6 +10,8 @@ import android.view.ViewManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 val ViewManager.context
     get() = when (this) {
@@ -19,22 +21,30 @@ val ViewManager.context
     }
 
 class ActivityViewManager(val activity: Activity) : ViewManager {
-    override fun addView(p0: View?, p1: ViewGroup.LayoutParams?) {
-        activity.setContentView(p0)
+    override fun addView(view: View, params: ViewGroup.LayoutParams) {
+        view.id = View.generateViewId()
+        activity.setContentView(view)
+        ViewCompat.setOnApplyWindowInsetsListener(activity.findViewById(view.id)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
     }
 
-    override fun updateViewLayout(p0: View?, p1: ViewGroup.LayoutParams?) {
+    override fun updateViewLayout(view: View, p1: ViewGroup.LayoutParams) {
         TODO("not implemented")
     }
 
-    override fun removeView(p0: View?) {
+    override fun removeView(view: View) {
         TODO("not implemented")
     }
 }
 
 inline fun Activity.setContentView(
     ui: ViewManager.() -> Unit
-) = ActivityViewManager(this).apply(ui)
+) = ActivityViewManager(this).apply(ui).apply {
+
+}
 
 fun <VM : ViewManager, V : View> VM.add(
     construct: (Context) -> V,

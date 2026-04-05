@@ -1,6 +1,7 @@
 package com.pluu.conventionplugins.features.main.ui
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.pluu.conventionplugins.features.common.SampleNavigator
 import com.pluu.sample.button
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView {
             column {
                 button("Go, Inner sample Activity") {
