@@ -42,15 +42,7 @@ fun Project.configureKotlin() {
         compilerOptions {
             allWarningsAsErrors.set(true)
 
-            optIn.addAll(
-                "-opt-in=kotlin.RequiresOptIn",
-                // Enable experimental coroutines APIs, including Flow
-                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-                "-opt-in=kotlinx.coroutines.FlowPreview",
-                "-opt-in=kotlin.Experimental",
-                // Enable experimental kotlinx serialization APIs
-                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
-            )
+//            optIn.addAll()
 
             // Set JVM target
             jvmTarget.set(Const.JVM_TARGET)
