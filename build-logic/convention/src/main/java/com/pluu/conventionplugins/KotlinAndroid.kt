@@ -2,35 +2,33 @@
 
 package com.pluu.conventionplugins
 
-import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
-import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.provideDelegate
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
  * Configure base Kotlin with Android options
  */
-fun BaseExtension.configureKotlinAndroid() {
-    compileSdkVersion(33)
+fun CommonExtension.configureKotlinAndroid() {
+    compileSdk = 33
 
-    defaultConfig {
-        targetSdk = 33
+    defaultConfig.apply {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    compileOptions.apply {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
-fun <T : BuildType> CommonExtension<*, T, *, *>.configureBuildTypes() {
-    buildTypes {
-        release {
+fun CommonExtension.configureBuildTypes() {
+    buildTypes.apply {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,15 +38,12 @@ fun <T : BuildType> CommonExtension<*, T, *, *>.configureBuildTypes() {
     }
 }
 
-fun configureKotlin(project: Project) {
-    project.tasks.withType(KotlinCompile::class.java).configureEach {
-        kotlinOptions {
-            // Treat all Kotlin warnings as errors (disabled by default)
-            // Override by setting warningsAsErrors=true in your ~/.gradle/gradle.properties
-            val warningsAsErrors: String? by project
-            allWarningsAsErrors = warningsAsErrors.toBoolean()
+fun Project.configureKotlin() {
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            allWarningsAsErrors.set(true)
 
-            freeCompilerArgs = freeCompilerArgs + listOf(
+            optIn.addAll(
                 "-opt-in=kotlin.RequiresOptIn",
                 // Enable experimental coroutines APIs, including Flow
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
@@ -58,8 +53,8 @@ fun configureKotlin(project: Project) {
                 "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
             )
 
-            // Set JVM target to 1.8
-            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            // Set JVM target
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
 }

@@ -1,4 +1,4 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import com.pluu.conventionplugins.configureBuildTypes
 import com.pluu.conventionplugins.configureKotlin
 import com.pluu.conventionplugins.configureKotlinAndroid
@@ -12,13 +12,12 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         with(project) {
             with(pluginManager) {
                 apply("com.android.library")
-                apply("org.jetbrains.kotlin.android")
             }
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid()
                 configureBuildTypes()
-                configureKotlin(project)
+                configureKotlin()
 
                 defaultConfig.consumerProguardFiles("consumer-rules.pro")
             }
