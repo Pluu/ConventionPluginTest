@@ -1,5 +1,4 @@
 import com.pluu.conventionplugins.java
-import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -13,8 +12,8 @@ class JavaLibraryConventionPlugin : Plugin<Project> {
             }
 
             java {
-                sourceCompatibility = JavaVersion.VERSION_1_8
-                targetCompatibility = JavaVersion.VERSION_1_8
+                sourceCompatibility = Const.JAVA_VERSION
+                targetCompatibility = Const.JAVA_VERSION
             }
         }
     }

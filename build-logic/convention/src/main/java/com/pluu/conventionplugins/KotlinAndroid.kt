@@ -2,27 +2,26 @@
 
 package com.pluu.conventionplugins
 
+import Const
 import com.android.build.api.dsl.CommonExtension
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
  * Configure base Kotlin with Android options
  */
 fun CommonExtension.configureKotlinAndroid() {
-    compileSdk = 33
+    compileSdk = Const.compileSdk
 
     defaultConfig.apply {
-        minSdk = 23
+        minSdk = Const.minSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions.apply {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = Const.JAVA_VERSION
+        targetCompatibility = Const.JAVA_VERSION
     }
 }
 
@@ -54,7 +53,7 @@ fun Project.configureKotlin() {
             )
 
             // Set JVM target
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(Const.JVM_TARGET)
         }
     }
 }

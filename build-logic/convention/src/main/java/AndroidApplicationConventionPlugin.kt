@@ -16,7 +16,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             extensions.configure<ApplicationExtension> {
                 defaultConfig {
-                    targetSdk = 33
+                    targetSdk = Const.targetSdk
                 }
                 configureKotlinAndroid()
                 configureBuildTypes()
