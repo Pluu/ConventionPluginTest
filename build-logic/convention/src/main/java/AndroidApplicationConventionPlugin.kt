@@ -12,6 +12,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         with(project) {
             with(pluginManager) {
                 apply("com.android.application")
+                apply("com.android.legacy-kapt")
             }
 
             extensions.configure<ApplicationExtension> {
@@ -21,6 +22,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureKotlinAndroid()
                 configureBuildTypes()
                 configureKotlin()
+
+                buildFeatures {
+                    dataBinding = true
+                }
             }
         }
     }
