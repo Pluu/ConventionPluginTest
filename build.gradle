@@ -12,6 +12,6 @@ println("===============")
 println ext.PLUU
 println("===============")
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
