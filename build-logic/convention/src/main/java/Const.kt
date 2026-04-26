@@ -5,6 +5,6 @@ object Const {
     const val compileSdk = 36
     const val minSdk = 23
     const val targetSdk = 36
-    val JAVA_VERSION = JavaVersion.VERSION_11
-    val JVM_TARGET = JvmTarget.JVM_11
+    val JAVA_VERSION = JavaVersion.VERSION_17
+    val JVM_TARGET = JvmTarget.JVM_17
 }
