@@ -28,7 +28,7 @@ fun CommonExtension.configureKotlinAndroid() {
 fun CommonExtension.configureBuildTypes() {
     buildTypes.apply {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
