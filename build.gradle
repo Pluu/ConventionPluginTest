@@ -12,5 +12,5 @@ println ext.PLUU
 println("===============")
 
 tasks.register('clean', Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }
