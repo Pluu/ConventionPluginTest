@@ -20,8 +20,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
                 configureKotlinAndroid()
                 configureBuildTypes()
-                configureKotlin()
             }
+            configureKotlin()
         }
     }
 }

@@ -1,3 +1,4 @@
+import com.pluu.conventionplugins.configureKotlin
 import com.pluu.conventionplugins.java
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -15,6 +16,7 @@ class JavaLibraryConventionPlugin : Plugin<Project> {
                 sourceCompatibility = Const.JAVA_VERSION
                 targetCompatibility = Const.JAVA_VERSION
             }
+            configureKotlin()
         }
     }
 }
