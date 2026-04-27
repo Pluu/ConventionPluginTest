@@ -5,7 +5,10 @@ package com.pluu.conventionplugins
 import Const
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
@@ -38,14 +41,25 @@ fun CommonExtension.configureBuildTypes() {
 }
 
 fun Project.configureKotlin() {
-    tasks.withType<KotlinCompile>().configureEach {
+    extensions.configure<KotlinAndroidProjectExtension> {
         compilerOptions {
-            allWarningsAsErrors.set(true)
-
-//            optIn.addAll()
-
-            // Set JVM target
-            jvmTarget.set(Const.JVM_TARGET)
+            configureDefaultKotlinOption()
         }
     }
+}
+
+fun Project.configureKotlinLibrary() {
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            configureDefaultKotlinOption()
+        }
+    }
+}
+
+private fun KotlinJvmCompilerOptions.configureDefaultKotlinOption() {
+    allWarningsAsErrors.set(true)
+//    optIn.addAll()
+
+    // Set JVM target
+    jvmTarget.set(Const.JVM_TARGET)
 }
