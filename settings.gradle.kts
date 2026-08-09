@@ -31,3 +31,4 @@ include(
     ":features-main",
     ":features-sample"
 )
+include(":sample:Feature1Sample")
