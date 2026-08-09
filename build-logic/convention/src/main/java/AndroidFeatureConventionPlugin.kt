@@ -13,8 +13,8 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-                implementation(project(":core-ui"))
-                implementation(project(":features-navigator"))
+                implementation(project(":core:core-ui"))
+                implementation(project(":features:navigator"))
             }
         }
     }

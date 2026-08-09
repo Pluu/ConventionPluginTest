@@ -25,10 +25,11 @@ dependencyResolutionManagement {
 rootProject.name = "ConventionPluginsSample"
 include(
     ":app",
-    ":core-data",
-    ":core-ui",
-    ":features-navigator",
-    ":features-main",
-    ":features-sample"
+    ":core:core-data",
+    ":core:core-ui",
+    ":features:navigator",
+    ":features:main",
+    ":features:sample"
 )
 include(":sample:Feature1Sample")
+include(":library:feature1")
