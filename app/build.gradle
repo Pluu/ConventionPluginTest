@@ -1,6 +1,7 @@
 plugins {
     id 'pluu.convention.android.application'
     id 'pluu.convention.android.hilt'
+    id 'pluu.convention.android.application.includeall'
 }
 
 android {

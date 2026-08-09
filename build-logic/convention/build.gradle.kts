@@ -45,6 +45,10 @@ gradlePlugin {
             id = "pluu.convention.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
+        register("androidApplicationIncludeAll") {
+            id = "pluu.convention.android.application.includeall"
+            implementationClass = "AndroidApplicationIncludeAllConventionPlugin"
+        }
         register("javaLibrary") {
             id = "pluu.convention.java"
             implementationClass = "JavaLibraryConventionPlugin"
