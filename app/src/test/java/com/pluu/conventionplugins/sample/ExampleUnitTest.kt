@@ -1,8 +1,8 @@
 package com.pluu.conventionplugins.sample
 
+import com.pluu.library.feature1.MyClass
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +12,10 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
+        println("▼▼▼▼▼Test Runtime▼▼▼▼▼")
+        val k = MyClass()
+        println(k.toString())
+        println("▲▲▲▲▲Test Runtime▲▲▲▲▲")
         assertEquals(4, 2 + 2)
     }
 }

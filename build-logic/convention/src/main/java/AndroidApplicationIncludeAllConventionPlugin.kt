@@ -4,12 +4,14 @@ import org.gradle.kotlin.dsl.dependencies
 
 @Suppress("unused")
 class AndroidApplicationIncludeAllConventionPlugin : Plugin<Project> {
+    private val testRegex = ".*(test\\w*UnitTest$|connected\\w*AndroidTest)".toRegex()
+
     override fun apply(target: Project) {
         with(target) {
             // 실행하려는 태스크 이름에 "test" 또는 "connected"가 포함된 경우에만 의존성을 추가합니다.
+            println(gradle.startParameter.taskNames.joinToString(" xxxxx "))
             val isTestTaskRequested = gradle.startParameter.taskNames.any {
-                it.endsWith("testDebugUnitTest", ignoreCase = true) ||
-                        it.endsWith("connectedDebugAndroidTest", ignoreCase = true)
+                testRegex.matches(it)
             }
 
             if (!isTestTaskRequested) return
