@@ -1,8 +1,8 @@
 [versions]
-androidGradlePlugin = "9.3.1"
-kotlin = "2.4.10"
+androidGradlePlugin = "9.4.1"
+kotlin = "2.4.20"
 hilt = "2.60.1"
-ksp = "2.3.11"
+ksp = "2.3.12"
 
 [libraries]
 androidx-core-ktx = "androidx.core:core-ktx:1.19.0"
