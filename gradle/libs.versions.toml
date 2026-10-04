@@ -5,7 +5,7 @@ hilt = "2.60.1"
 ksp = "2.3.12"
 
 [libraries]
-androidx-core-ktx = "androidx.core:core-ktx:1.19.0"
+androidx-core-ktx = "androidx.core:core-ktx:1.19.1"
 androidx-appcompat = "androidx.appcompat:appcompat:1.8.0"
 google-android-material = "com.google.android.material:material:1.14.0"
 androidx-test-ext = "androidx.test.ext:junit:1.3.0"
